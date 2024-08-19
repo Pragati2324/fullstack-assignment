@@ -11,60 +11,84 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## npm i react-router-dom axios 
+for data fetching and all other required things
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## backend
+# Backend for Card Management System
 
-### `npm run build`
+## Overview
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This is the backend for a card management system built with Express.js and MongoDB. It provides APIs to create, retrieve, and query card data.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Requirements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js (>=14.x)
+- MongoDB (>=4.4)
 
-### `npm run eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone the Repository**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+npm install
+MONGODB_URI=mongodb://127.0.0.1:27017/card
+PORT=5000
+## run server
+nodemon server
+API Endpoints
+Create a Card
+Endpoint: POST /api/cards
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Request Body:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+json
+Copy code
+{
+  "title": "Card Title",
+  "description": "Card Description"
+}
+Response:
 
-## Learn More
+json
+Copy code
+{
+  "title": "Card Title",
+  "description": "Card Description",
+  "_id": "card-id",
+  "__v": 0
+}
+Get All Cards
+Endpoint: GET /api/cards
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Response:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+json
+Copy code
+[
+  {
+    "title": "Card Title",
+    "description": "Card Description",
+    "_id": "card-id",
+    "__v": 0
+  },
+  ...
+]
+Get a Specific Card by Title
+Endpoint: GET /api/cards/:title
 
-### Code Splitting
+Response:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+json
+Copy code
+{
+  "title": "Card Title",
+  "description": "Card Description",
+  "_id": "card-id",
+  "__v": 0
+}
+Testing
+You can test the endpoints using tools like Postman or cURL. Ensure MongoDB is running and accessible before testing.
